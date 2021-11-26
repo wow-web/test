@@ -1,0 +1,244 @@
+.top-line {
+    position: relative;
+    height: 48px;
+}
+
+.top-line__fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    width: 100%;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    box-sizing: border-box;
+
+    background-color: $bg;
+    border-bottom: 1px solid rgba($text, .05);
+}
+
+.top-line__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-line__logo {
+    img {
+        display: block;
+        height: 30px;
+        width: auto;
+    }
+}
+
+.top-line__mnu-btn {
+    position: relative;
+    order: 1;
+    width: 22.5px;
+    height: 17.25px;
+    padding: 0;
+    margin: 0;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        span {
+            background-color: $blue-light;
+        }
+    }
+
+    span {
+        position: absolute;
+        left: 0;
+
+        display: block;
+        height: 3px;
+        width: 100%;
+
+        background-color: $blue;
+        transform: rotate(0deg);
+        opacity: 1;
+        transition: .25s ease-in-out;
+
+        &:first-of-type {
+            top: 0;
+            transform-origin: left center;
+        }
+
+        &:nth-child(2) {
+            top: 7.125px;
+        }
+
+        &:last-of-type {
+            top: 14.25px;
+            transform-origin: left center;
+        }
+    }
+}
+
+.open-menu {
+    .top-line__mnu-btn {
+        span {
+            height: 2.25px;
+            width: 26.25px;
+        }
+        span:first-of-type {
+            transform: rotate(45deg);
+            top: -1px;
+            left: 3px;
+        }
+
+        span:nth-child(2) {
+            opacity: 0;
+        }
+
+        span:last-of-type {
+            transform: rotate(-45deg);
+            top: 17px;
+            left: 3px;
+        }
+    }
+}
+
+.top-line__hint {
+    display: none;
+}
+
+.top-line__mnu {
+    position: fixed;
+    top: 48px;
+    right: 0;
+    z-index: 2;
+
+    height: 100%;
+    width: 286px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    background: rgba($bg, .95);
+    box-shadow: 0px 3px 12px rgba($text, .29);
+    opacity: 0;
+    transform: translateX(150px);
+    pointer-events: none;
+    transition: .3s;
+}
+
+.open-menu {
+    .top-line__mnu {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+    }
+}
+
+@media(min-width: $desktop-width) {
+    .top-line {
+        height: 68px;
+    }
+
+    .top-line__fixed {
+        padding-top: 11px;
+        padding-bottom: 13px;
+    }
+
+    .top-line__wrapper {
+        position: relative;
+    }
+
+    .top-line__logo {
+        img {
+            height: 44px;
+        }
+    }
+
+    .top-line__mnu-btn {
+        order: 0;
+        width: 30px;
+        height: 23px;
+
+        span {
+            &:nth-child(2) {
+                top: 10px;
+            }
+
+            &:last-of-type {
+                top: 20px;
+            }
+        }
+    }
+
+    .open-menu {
+        .top-line__mnu-btn {
+            span {
+                height: 3px;
+                width: 35px;
+            }
+            span:first-of-type {
+                top: -3px;
+                left: 3px;
+            }
+
+            span:last-of-type {
+                top: 22px;
+                left: 3px;
+            }
+        }
+    }
+
+    .top-line__hint {
+        display: block;
+        width: 44px;
+        height: 44px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+
+        svg {
+            width: 100%;
+            height: 100%;
+            fill: transparent;
+            cursor: pointer;
+        }
+
+        #Path_1 {
+            fill: $blue;
+            transition: .3s;
+        }
+
+        #Ellipse_2 {
+             stroke: $blue;
+             transition: .3s;
+        }
+
+        &:hover {
+            #Path_1 {
+                fill: $blue-light;
+            }
+
+            #Ellipse_2 {
+                stroke: $blue-light;
+            }
+
+            .top-line__popup.popup {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    .top-line__mnu {
+        top: 68px;
+        left: 0;
+        right: auto;
+
+        height: 100%;
+        width: 280px;
+
+        transform: translateX(-150px);
+    }
+}

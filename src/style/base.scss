@@ -1,0 +1,134 @@
+@include font-face("open-sans-b", "../assets/fonts/OpenSansRegular/OpenSansRegular");
+@include font-face("open-sans-b", "../assets/fonts/OpenSansSemibold/OpenSansSemibold", 600);
+@include font-face("open-sans-b", "../assets/fonts/OpenSansBold/OpenSansBold", bold);
+
+*::selection {
+    background: $accent;
+    color: white;
+}
+
+*::-moz-selection {
+    background: $accent;
+    color: white;
+}
+
+body,
+html {
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+
+    min-width: 320px;
+    margin: 0px;
+    padding: 0px;
+
+    font-family: $d-font;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 16px;
+    color: $text;
+
+    background-color: $bg;
+}
+
+.container,
+.container-fluid {
+    width: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin: 0 auto;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+	position: absolute;
+
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+
+	white-space: no-wrap;
+	clip-path: inset(100%);
+	overflow: hidden;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.title {
+    margin: 0;
+    margin-bottom: 17px;
+
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 60px;
+
+    font-size: $d-font;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    color: $bg;
+
+    background-color: $accent;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+        background-color: #E1133F;
+    }
+}
+
+@media (min-width: $desktop-width) {
+    body {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+	.container {
+        width: auto;
+        max-width: 960px;
+        padding-right: 32px;
+        padding-left: 32px;
+    }
+
+    .container-fluid {
+        width: auto;
+        max-width: 1280px;
+        padding-right: 32px;
+        padding-left: 32px;
+        box-sizing: border-box;
+    }
+
+    .title {
+        font-size: 36px;
+        line-height: 49px;
+        margin-bottom: 16px;
+    }
+}

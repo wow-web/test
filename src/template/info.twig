@@ -1,0 +1,38 @@
+<div class="info">
+    <h2 class="title">Узнайте, как оплатить</h2>
+
+    <div class="info__links">
+    {% for item in info %}
+        <a class="info__links-item" href="#{{ item.icon }}">{{ item.title }}</a>
+    {% endfor %}
+        <p class="info__links-item">и другие услуги</p>
+    </div>
+
+    <div class="info__list">
+    {% for item in info %}
+        <div class="info__item" id="{{ item.icon }}">
+            <div class="container">
+                <div class="info__content">
+                    <div class="info__top">
+                        <div class="info__icon">
+                            <svg><use xlink:href="assets/img/icons/sprite.svg#{{ item.icon }}"></use></svg>
+                        </div>
+                        <h3>{{ item.title }}</h3>
+                        <div class="info__arrow">
+                            <svg><use xlink:href="assets/img/icons/sprite.svg#ic_dropdown-arrow"></use></svg>
+                        </div>
+                    </div>
+                    <div class="info__descr">
+                    {% for text in item.text %}
+                        <p>{{ text }}</p>
+                    {% endfor %}
+                    </div>
+                </div>
+                <div class="info__img">
+                    <img src="assets/img/{{ item.img }}.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="partners container">
+    <h2 class="title">С нами работают</h2>
+
+    <div class="partners__list">
+    {% for item in partners %}
+        <div class="partners__item">
+            <div class="partners__img">
+                <img src="assets/img/partners/{{ item.img }}.svg" alt="">
+            </div>
+            <h3 class="partners__name">{{ item.title }}</h3>
+        </div>
+    {% endfor %}
+    </div>
+</div>
